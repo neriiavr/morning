@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function greeting(name) {
+  const date = new Date ()  
+  const hours = date.getHours() 
+  
+  let timeOfDay 
+  if (hours < 12) {
+    timeOfDay = "morning"
+  } else if (hours >= 12 && hours < 17) {
+    timeOfDay = "afternoon"
+  } else if (hours >= 17 && hours < 20) {
+    timeOfDay = "evening"
+  } else {
+    timeOfDay = "night"
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    `Good ${timeOfDay}, ${name}!`
+)}
 
-export default App;
+console.log(greeting("Bob"))
+
+export default greeting;
